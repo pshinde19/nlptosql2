@@ -1,0 +1,8 @@
+{
+  "Products": {
+    "Quantity": "Quantity of type INTEGER",
+    "ProductName": "Productname of type NVARCHAR(100) COLLATE \"Latin1_General_CI_AS\"",
+    "ProductID": "Productid of type INTEGER (Primary Key)",
+    "Price": "Price of type DECIMAL(10, 2)"
+  }
+}
