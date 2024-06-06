@@ -20,10 +20,10 @@ app.secret_key = '123456'
 app.secret_key = '123456'
 
 # Configure Redis for session storage
-app.config['SESSION_TYPE'] = 'redis'
-app.config['SESSION_PERMANENT'] = False
-app.config['SESSION_USE_SIGNER'] = True
-app.config['SESSION_KEY_PREFIX'] = 'session:'
+#app.config['SESSION_TYPE'] = 'redis'
+#app.config['SESSION_PERMANENT'] = False
+#app.config['SESSION_USE_SIGNER'] = True
+#app.config['SESSION_KEY_PREFIX'] = 'session:'
 
 os.environ["OPENAI_API_KEY"] = ""
 llm_model = "gpt-3.5-turbo"
