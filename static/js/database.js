@@ -13,7 +13,7 @@ var colorNames = [
     "Arctic blue", "Pista green", "Coffee brown", "Umber", "Brunette", "Mocha", "Ash", "Jet black"
   ];
 
-$(document).ready(function() {
+$(document).ready(function() { 
     // AJAX call when the document is ready
     $.ajax({
       url: 'getmetadata', // Replace with your API endpoint
@@ -1082,7 +1082,7 @@ function disconnect(){
             $(".latdb").html('')
             $(".latdbusername").text('')
             $(".latdbname").text('')            
-            $('.getqueryans').html('')
+            // $('.getqueryans').html('')
             $('#userinput').val('')
             $('#db-form')[0].reset();
             $(".myquery").val('')
