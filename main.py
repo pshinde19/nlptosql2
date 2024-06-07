@@ -20,10 +20,10 @@ app.secret_key = '123456'
 app.secret_key = '123456'
 
 # Configure Redis for session storage
-#app.config['SESSION_TYPE'] = 'redis'
-#app.config['SESSION_PERMANENT'] = False
-#app.config['SESSION_USE_SIGNER'] = True
-#app.config['SESSION_KEY_PREFIX'] = 'session:'
+# app.config['SESSION_TYPE'] = 'redis'
+# app.config['SESSION_PERMANENT'] = False
+# app.config['SESSION_USE_SIGNER'] = True
+# app.config['SESSION_KEY_PREFIX'] = 'session:'
 
 os.environ["OPENAI_API_KEY"] = ""
 llm_model = "gpt-3.5-turbo"
@@ -116,7 +116,7 @@ def getquery():
             return jsonify({"table":html_table,"msg":"success","graph":graph_html,"query":sqlquery})
     except Exception as e:
         print(e)
-        return 'error'
+        return jsonify({"msg":'error'})
 
 
 
@@ -146,7 +146,7 @@ def conectdb():
             return  jsonify({"msg":"success","schema":mastertbl})
     except Exception as e:
         print(e)
-        return 'error'
+        return jsonify({"msg":'error'})
 
 @app.route('/getmetadata' ,methods=['GET'])
 def getmetadata():
@@ -329,7 +329,7 @@ def extract_tables(structure):
 
 @app.route('/generatedescription' ,methods=['POST'])
 def gendescription():
-    # try:
+    try:
         print('gendescription called ----------------')
         if (request.method == 'POST'):
             structure=request.form['schema']
@@ -354,9 +354,9 @@ def gendescription():
             session.modified = True
             print('adb',session)    
             return jsonify({"msg":'success',"metadata":session[session['user']]['metadata']})
-    # except Exception as e :
-    #     print(e)
-    #     return jsonify({"msg":'error',"metadata":session[session['user']]['metadata']})
+    except Exception as e :
+        print(e)
+        return jsonify({"msg":'error',"metadata":session[session['user']]['metadata']})
 
 
 def get_connection():
